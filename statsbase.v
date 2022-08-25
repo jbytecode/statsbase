@@ -2,6 +2,15 @@ module statsbase
 
 import math
 
+fn harmmean(x []f64) f64{
+    xl := x.len 
+    mut s := 0.0
+    for i in 0 .. xl {
+        s += 1.0 / x[i]
+    }
+    return f64(xl) / s
+}
+
 fn geomean(x []f64) f64 {
 	mut s := 0.0
 	xl := x.len

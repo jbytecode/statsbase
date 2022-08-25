@@ -97,3 +97,8 @@ fn test_geomean() {
 	x := [1.0, 2.0, 3.0, 10.0, 9.0]
 	assert 3.5194820289355238 == geomean(x)
 }
+
+fn test_harmmean(){
+	x := [1.0, 2.0, 3.0, 10.0, 9.0]
+	assert 2.4456521739130435 == harmmean(x)
+}
