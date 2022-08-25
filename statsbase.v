@@ -2,6 +2,20 @@ module statsbase
 
 import math
 
+fn wmean(x []f64, w []f64) f64 {
+    return wsum(x, w) / sum(w)
+}
+
+
+fn wsum(x []f64, w []f64) f64 {
+    mut s := 0.0
+    xl := x.len 
+    for i in 0 .. xl {
+        s += x[i] * w[i]
+    }
+    return s
+}
+
 fn harmmean(x []f64) f64{
     xl := x.len 
     mut s := 0.0
@@ -139,5 +153,5 @@ fn mean(x []f64) f64 {
 }
 
 fn main() {
-	print('Hello world!')
+	print('Basic Statistics functions for V language')
 }
