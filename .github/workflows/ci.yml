@@ -24,4 +24,4 @@ jobs:
         run: v .
 
       - name: Run Tests
-        run: v test .
+        run: v -stats test .
