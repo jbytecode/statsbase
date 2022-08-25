@@ -2,6 +2,30 @@ module main
 
 import math 
 
+/*
+    Pearson Correlation Coefficient
+*/
+fn correlation(x []f64, y []f64) f64 {
+    xstd := standardize(x)
+    ystd := standardize(y)
+    xl := x.len
+    mut s := 0.0
+    for i in 0..xl {
+        s += xstd[i] * ystd[i]
+    }
+    return s / (f64(xl) - 1.0)
+}
+
+fn covariance(x []f64, y []f64) f64 {
+    centeredx := centerize(x)
+    centeredy := centerize(y)
+    mut s := 0.0
+    for i in 0..x.len {
+        s += centeredx[i] * centeredy[i]
+    }
+    return s / (f64(x.len) - 1.0)
+}
+
 fn sample_std(x []f64) f64 {
     return math.sqrt(sample_variance(x))
 }
@@ -13,6 +37,15 @@ fn sample_variance(x []f64) f64 {
         s += element * element 
     }
     return s / (f64(x.len) - 1.0)
+}
+
+fn standardize(x []f64) []f64 {
+    mut centered := centerize(x)
+    stddev := sample_std(x)
+    for i in 0..x.len {
+        centered[i] /= stddev 
+    }
+    return centered 
 }
 
 fn centerize(x []f64) []f64 {

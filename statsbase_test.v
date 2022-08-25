@@ -1,5 +1,7 @@
 module main 
 
+import math 
+
 fn test_sum() {
 	assert 0.0 == sum([])
 	assert 1.0 == sum([1.0])
@@ -50,6 +52,16 @@ fn test_centerize(){
 	assert  1  == y[2]
 }
 
+fn test_standardize(){
+	x := [1.0, 2.0, 3.0, 10.0, 9.0] 
+	stdx := standardize(x)
+	assert -0.9561828874675149  == stdx[0]
+ 	assert -0.7171371656006361  == stdx[1]
+ 	assert -0.47809144373375745 == stdx[2]
+  	assert 1.1952286093343936   == stdx[3]
+  	assert 0.9561828874675149   == stdx[4]
+}
+
 fn test_sample_variance(){
 	x := [1.0, 2.0, 3.0, 10.0, 9.0]
 	assert 17.5 == sample_variance(x)
@@ -60,5 +72,19 @@ fn test_sample_std(){
 	assert 4.183300132670378 == sample_std(x)
 }
 
+fn test_covariance(){
+	x := [1.0, 2.0, 3.0, 10.0, 9.0]
+	y := [9.0, 10, 3, 2, 1]
+	assert 17.5 == covariance(x, x)
+	assert -14.5 == covariance(x, y)
+}
+
+fn test_correlation(){
+	eps := 0.0001
+	x := [1.0, 2.0, 3.0, 10.0, 9.0]
+	y := [9.0, 10, 3, 2, 1]
+	assert math.abs(1.0 - correlation(x, x)) < eps 
+	assert math.abs(-0.8285714285714286 - correlation(x, y)) < eps 
+}
 
 
