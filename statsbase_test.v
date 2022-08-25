@@ -87,4 +87,10 @@ fn test_correlation(){
 	assert math.abs(-0.8285714285714286 - correlation(x, y)) < eps 
 }
 
+fn test_mad(){
+	x := [1.0, 2.0, 3.0, 10.0, 9.0]
+	xmad := mad(x)
+	assert 2.9652044370112036 == xmad 
+}
+
 

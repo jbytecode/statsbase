@@ -2,6 +2,17 @@ module main
 
 import math 
 
+
+fn mad(x []f64) f64 {
+    med := median(x)
+    xl := x.len
+    mut res := []f64{len: xl} 
+    for i in 0 .. xl {
+        res[i] = math.abs(x[i] - med)
+    }
+    return median(res) * 1.4826022185056018
+}
+
 /*
     Pearson Correlation Coefficient
 */
@@ -96,9 +107,9 @@ fn quantile(x []f64, p f64) f64 {
 }
 
 fn sum(x []f64) f64 {
-    mut s := 0.0
-    for element in x {
-        s += element
+    mut s := f64(0.0)
+    for i in 0 .. x.len {
+        s += x[i]
     }
     return s
 }
