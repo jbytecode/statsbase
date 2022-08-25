@@ -115,5 +115,23 @@ fn test_wmean(){
 	assert 5.666666666666667 == wmean(x, w)
 }
 
+fn test_normaldistribution(){
+	nd := NormalDistribution{mean: 0.0, var: 1.0}
+	assert nd.mean() == 0.0
+	assert nd.var()  == 1.0
+	assert nd.std()  == 1.0
+}
 
+fn test_inverf(){
+	eps := 0.005
+	assert inverf(0.0) == 0.0
+	assert math.abs(inverf(0.1) - 0.08885599049425769) < eps 
+	assert math.abs(inverf(0.5) - 0.4769362762044699) < eps 
+	assert math.abs(inverf(0.8) - 0.9061938024368231) < eps 
+}
+
+fn test_qnorm(){
+	eps := 0.005
+	assert math.abs(qnorm(0.0, 1.0, 0.05 / 2) - -1.9599639845400592) < eps
+}
 
