@@ -1,4 +1,4 @@
-module statsbase 
+module main 
 
 import math 
 

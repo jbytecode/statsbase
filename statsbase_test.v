@@ -1,4 +1,4 @@
-module statsbase 
+module main 
 
 fn test_sum() {
 	assert 0.0 == sum([])
