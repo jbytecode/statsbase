@@ -93,4 +93,8 @@ fn test_mad(){
 	assert 2.9652044370112036 == xmad 
 }
 
+fn test_geomean(){
+	x := [1.0, 2.0, 3.0, 10.0, 9.0]
+	assert 3.5194820289355238 == geomean(x)
+}
 

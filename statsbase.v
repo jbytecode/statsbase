@@ -2,6 +2,15 @@ module main
 
 import math 
 
+fn geomean(x []f64) f64 {
+    mut s := 0.0
+    xl := x.len
+    denom := 1.0 / f64(xl)
+    for i in 0 .. xl {
+        s += math.log(x[i])
+    }
+    return math.exp(denom * s)
+}
 
 fn mad(x []f64) f64 {
     med := median(x)
