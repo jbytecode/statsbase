@@ -2,6 +2,22 @@ module statsbase
 
 import math
 
+
+fn qnorm(mu f64, sd f64, p f64) f64 {
+    return math.sqrt2 * sd * inverf(2 * p - 1) + mu
+}
+
+fn inverf(x f64) f64{
+  //a := 0.140012
+  a := (8.0 * (math.pi - 3)) / (3.0 * math.pi - (4.0 - math.pi))
+  return math.sign(x) *
+   math.sqrt(
+        math.sqrt( 
+            math.pow(
+                2.0/(math.pi * a) + math.log(1-x*x)/2.0, 2.0) - 
+                (math.log(1.0-x*x)/a)) - (2.0/(math.pi * a) + math.log(1.0 - x*x)/2.0))
+}
+
 fn wmean(x []f64, w []f64) f64 {
     return wsum(x, w) / sum(w)
 }
