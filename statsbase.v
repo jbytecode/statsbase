@@ -2,6 +2,9 @@ module statsbase
 
 import math
 
+fn dbinom(x i64, n i64, p f64) f64 {
+	return combination(n, x) * math.pow(p, x) * math.pow(1 - p, n - x)
+}
 
 fn pexp(q f64, theta f64) f64 {
 	return 1.0 - math.exp(-q / theta)

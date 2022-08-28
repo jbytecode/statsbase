@@ -211,3 +211,11 @@ fn test_pexp(){
 	assert math.abs(pexp(3, 5.0) - 0.4511884) < eps 
 	assert math.abs(pexp(4, 10.0) - 0.32968) < eps 
 }
+
+fn test_dbinom(){
+	eps := 0.001
+	assert math.abs(dbinom(5, 10, 0.5) - 0.2460938) < eps 
+	result := dbinom(25, 100, 0.25)
+	print("{$result}")
+	assert math.abs(dbinom(5, 50, 0.25) - 0.004937859) < eps
+}
