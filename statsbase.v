@@ -2,6 +2,19 @@ module statsbase
 
 import math
 
+
+fn pexp(q f64, theta f64) f64 {
+	return 1.0 - math.exp(-q / theta)
+}
+
+fn qexp(p f64, theta f64) f64 {
+	return -math.log(1 - p) * theta 
+}
+
+fn dexp(x f64, theta f64) f64 {
+	return (1 / theta) * math.exp(-x / theta)
+}
+
 fn punif(q f64, a f64, b f64) f64{
 	myf := fn [a, b] (x f64) f64 {
 		return dunif(x, a, b)

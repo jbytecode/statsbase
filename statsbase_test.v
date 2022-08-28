@@ -180,3 +180,21 @@ fn test_punif(){
 	assert math.abs(punif(5.0, 1.0, 10) - 0.4444444) < eps 
 	assert math.abs(punif(9.0, 1.0, 10) - 0.8888889) < eps 
 }
+
+fn test_dexp(){
+	eps := 0.001
+	assert math.abs(dexp(3, 5.0) - 0.1097623) < eps 
+	assert math.abs(dexp(4, 5.0) - 0.08986579) < eps 
+}
+
+fn test_qexp(){
+	eps := 0.001
+	assert math.abs(qexp(0.5, 5.0) - 3.465736) < eps 
+	assert math.abs(qexp(0.75, 10.0) - 13.86294) < eps 
+}
+
+fn test_pexp(){
+	eps := 0.001
+	assert math.abs(pexp(3, 5.0) - 0.4511884) < eps 
+	assert math.abs(pexp(4, 10.0) - 0.32968) < eps 
+}
