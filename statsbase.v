@@ -3,7 +3,7 @@ module statsbase
 import math
 
 fn pnorm(q f64, mu f64, sd f64) f64{
-	mut myf := fn [mu, sd] (x f64) f64 {
+	myf := fn [mu, sd] (x f64) f64 {
 		return dnorm(x, mu, sd)
 	}
 	return integrate(myf, mu + sd * (-5.0), q) 

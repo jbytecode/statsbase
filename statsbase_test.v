@@ -154,7 +154,7 @@ fn test_integrate(){
 // In the current version of V
 // lambdas are errornous (or I can't figure out how to use them properly)
 // so I am commenting the pnorm by now.
-//fn test_pnorm(){
-//	eps := 0.005
-//	assert pnorm(-1.96, 0.0, 1.00) == 0.5
-//}
+fn test_pnorm(){
+	eps := 0.005
+	assert math.abs(pnorm(-1.96, 0.0, 1.00) - 0.0249) < eps
+}
