@@ -2,9 +2,30 @@ module statsbase
 
 import math
 
+fn pnorm(q f64, mu f64, sd f64) f64{
+	mut myf := fn [mu, sd] (x f64) f64 {
+		return dnorm(x, mu, sd)
+	}
+	return integrate(myf, mu + sd * (-5.0), q) 
+}
 
 fn qnorm(mu f64, sd f64, p f64) f64 {
     return math.sqrt2 * sd * inverf(2 * p - 1) + mu
+}
+
+fn dnorm(x f64, mu f64, sd  f64) f64 {
+	return (1/(sd * math.sqrt(2.0 * math.pi))) * math.exp(-0.5 * math.pow(((x - mu)/sd), 2.0))
+}
+
+fn integrate(func fn (f64) f64, from f64, to f64) f64{
+	mut s := 0.0
+	eps := 0.0001
+	mut i := from 
+	for i <= to {
+		s += func(i) * eps 
+		i += eps 
+	}
+	return s 
 }
 
 fn inverf(x f64) f64{

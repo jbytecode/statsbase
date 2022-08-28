@@ -135,3 +135,26 @@ fn test_qnorm(){
 	assert math.abs(qnorm(0.0, 1.0, 0.05 / 2) - -1.9599639845400592) < eps
 }
 
+fn test_dnorm(){
+	eps := 0.005
+	assert math.abs(dnorm(0.0, 0.0, 1.00) - 0.3989423) < eps
+	assert math.abs(dnorm(1.0, 0.0, 1.00) - 0.2419707) < eps
+	assert math.abs(dnorm(-1.0, 0.0, 1.00) - 0.2419707) < eps
+}
+
+fn test_integrate(){
+	eps := 0.001
+	f := fn (x f64) f64 {
+		return x * x 
+	}
+	result := integrate(f, 0.0, 1.0)
+	assert math.abs(result -  0.33333) < eps 
+}
+
+// In the current version of V
+// lambdas are errornous (or I can't figure out how to use them properly)
+// so I am commenting the pnorm by now.
+//fn test_pnorm(){
+//	eps := 0.005
+//	assert pnorm(-1.96, 0.0, 1.00) == 0.5
+//}
