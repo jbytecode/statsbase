@@ -151,10 +151,32 @@ fn test_integrate(){
 	assert math.abs(result -  0.33333) < eps 
 }
 
-// In the current version of V
-// lambdas are errornous (or I can't figure out how to use them properly)
-// so I am commenting the pnorm by now.
 fn test_pnorm(){
 	eps := 0.005
 	assert math.abs(pnorm(-1.96, 0.0, 1.00) - 0.0249) < eps
+}
+
+fn test_dunif(){
+	a := 0.0
+	b := 1.0
+	assert dunif(0, a, b) == 1 / (b-a)
+	assert dunif(0.5, a, b) == 1 / (b-a)
+	assert dunif(0.75, a, b) == 1 / (b-a)
+}
+
+fn test_qunif(){
+	assert qunif(0, 0, 1) == 0
+	assert qunif(0.5, 0, 1) == 0.5
+	assert qunif(0.75, 0, 1) == 0.75
+
+	assert qunif(0.1, 0, 10) == 1
+	assert qunif(0.5, 0, 10) == 5
+	assert qunif(0.75, 0, 10) == 7.5
+}
+
+fn test_punif(){
+	eps := 0.001
+	assert math.abs(punif(2.0, 1.0, 10) - 0.11111) < eps 
+	assert math.abs(punif(5.0, 1.0, 10) - 0.4444444) < eps 
+	assert math.abs(punif(9.0, 1.0, 10) - 0.8888889) < eps 
 }

@@ -2,6 +2,25 @@ module statsbase
 
 import math
 
+fn punif(q f64, a f64, b f64) f64{
+	myf := fn [a, b] (x f64) f64 {
+		return dunif(x, a, b)
+	}
+	if q < a {
+		return 0.0
+	}else{
+		return integrate(myf, a, q) 
+	}
+}
+
+fn qunif(p f64, a f64, b f64) f64 {
+	return p * (b - a) + a
+}
+
+fn dunif(x f64, a f64, b f64) f64 {
+	return 1.0 / (b - a)
+}
+
 fn pnorm(q f64, mu f64, sd f64) f64{
 	myf := fn [mu, sd] (x f64) f64 {
 		return dnorm(x, mu, sd)
