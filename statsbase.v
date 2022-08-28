@@ -170,6 +170,22 @@ fn centerize(x []f64) []f64 {
 	return res
 }
 
+fn combination(n i64, r i64) i64 {
+	nom := prod((n - r + 1), n)
+	denom := prod(2, r)
+	return nom / denom
+}
+
+fn prod(from i64, to i64) i64{
+	mut s := i64(1)
+	mut i := from 
+	for i <= to {
+		s *= i
+		i++
+	}
+	return s
+}
+
 fn max(x []f64) f64 {
 	mut res := math.inf(-1)
 	for element in x {

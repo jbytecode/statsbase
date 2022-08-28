@@ -44,6 +44,19 @@ fn test_max() {
 	assert 10.0 == max(y)
 }
 
+fn test_combination(){
+	assert combination(5, 3) == 10
+	assert combination(5, 5) == 1
+	assert combination(5, 0) == 1
+	assert combination(25, 4) == 12650
+	assert combination(100, 3) == 161700
+}
+
+fn test_prod(){
+	assert prod(1, 5) == 120
+	assert prod(3, 5) == 60
+}
+
 fn test_centerize() {
 	x := [1.0, 2.0, 3.0]
 	y := centerize(x)
