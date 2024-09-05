@@ -13,15 +13,15 @@ struct NormalDistribution {
 	var f64 
 }
 
-fn (obj NormalDistribution) mean() f64{
+pub fn (obj NormalDistribution) mean() f64{
 	return obj.mean 
 }
 
-fn (obj NormalDistribution) var() f64{
+pub fn (obj NormalDistribution) var() f64{
 	return obj.var
 }
 
-fn (obj NormalDistribution) std() f64{
+pub fn (obj NormalDistribution) std() f64{
 	return math.sqrt(obj.var) 
 }
 
